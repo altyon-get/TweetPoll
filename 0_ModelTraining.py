@@ -6,9 +6,7 @@ from sklearn.metrics import mean_squared_error
 import joblib
 
 # Read the cleaned CSV file into a pandas DataFrame
-df = pd.read_csv("data/CleanedDataset.csv")
-
-# Preprocess the text data (if further preprocessing is needed)
+df = pd.read_csv("data/CleanedDataset.csv",nrows=10000)
 
 # Create TF-IDF vectorizer
 tfidf_vectorizer = TfidfVectorizer()
@@ -29,4 +27,4 @@ y_pred = svr_regressor.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 print(f"Mean Squared Error: {mse}")
 
-joblib.dump((svr_regressor, tfidf_vectorizer), 'svr_model_with_tfidf.pkl')
+joblib.dump((svr_regressor, tfidf_vectorizer), 'data/svr_model_with_tfidf.pkl')
