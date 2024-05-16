@@ -14,7 +14,7 @@ import joblib
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Load the SVR model and TF-IDF vectorizer
-svr_regressor, tfidf_vectorizer = joblib.load('svr_model_with_tfidf.pkl')
+svr_regressor, tfidf_vectorizer = joblib.load('data/svr_model_with_tfidf.pkl')
 
 # Load the main CSV file
 def load_data(csv_file):
