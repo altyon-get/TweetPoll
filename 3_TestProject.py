@@ -229,7 +229,7 @@ rahul_df.drop(['Emotion'],axis=1,inplace=True)
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
-svr_regressor, tfidf_vectorizer = joblib.load('svr_model_with_tfidf.pkl')
+svr_regressor, tfidf_vectorizer = joblib.load('data/svr_model_with_tfidf.pkl')
 
 def svr_prediction(text):
     text_features = tfidf_vectorizer.transform([text])
