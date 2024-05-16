@@ -164,18 +164,18 @@ rahul_df['FinalEmotion'].value_counts()
 
 
 # Sentiments for Narendra Modi
-# plt.figure(figsize=(15,10))
-# sns.set_style("darkgrid")
-# ax = sns.countplot(x=modi_df['FinalEmotion'],palette=['#36454F','#89CFF0'])
-# ax.set_title('Sentiments scores of Tweets about Modi')
-# plt.savefig('sentiment_plot1.png', dpi=300)
+plt.figure(figsize=(15,10))
+sns.set_style("darkgrid")
+ax = sns.countplot(x=modi_df['FinalEmotion'],palette=['#36454F','#89CFF0'])
+ax.set_title('Sentiments scores of Tweets about Modi')
+plt.savefig('data/sentiment_plot1.png', dpi=300)
 
 # Sentiments for Rahul
-# plt.figure(figsize=(15,10))
-# sns.set_style("darkgrid")
-# ax = sns.countplot(x=rahul_df['FinalEmotion'],palette=['#36454F','#89CFF0'])
-# ax.set_title('Sentiments scores of Tweets about Rahul')
-# plt.savefig('sentiment_plot2.png', dpi=300)
+plt.figure(figsize=(15,10))
+sns.set_style("darkgrid")
+ax = sns.countplot(x=rahul_df['FinalEmotion'],palette=['#36454F','#89CFF0'])
+ax.set_title('Sentiments scores of Tweets about Rahul')
+plt.savefig('data/sentiment_plot2.png', dpi=300)
 
 
 
@@ -199,32 +199,30 @@ def textblob_prediction(text):
         return "neu"
 
 # Apply sentiment analysis using TextBlob
-# rahul_df['Emotion'] = rahul_df['Tweet'].apply(textblob_prediction)
-# modi_df['Emotion'] = modi_df['Tweet'].apply(textblob_prediction)
-# print(modi_df['Emotion'].value_counts());
-# print(rahul_df['Emotion'].value_counts());
+rahul_df['Emotion'] = rahul_df['Tweet'].apply(textblob_prediction)
+modi_df['Emotion'] = modi_df['Tweet'].apply(textblob_prediction)
+print(modi_df['Emotion'].value_counts());
+print(rahul_df['Emotion'].value_counts());
 
 # Sentiments for Narendra Modi
-# plt.figure(figsize=(15,10))
-# sns.set_style("darkgrid")
-# ax = sns.countplot(x=modi_df['Emotion'],palette=['#36454F','#89CFF0'])
-# ax.set_title('Sentiments scores of Tweets about Modi')
-# plt.savefig('sentiment_plot3.png', dpi=300)
+plt.figure(figsize=(15,10))
+sns.set_style("darkgrid")
+ax = sns.countplot(x=modi_df['Emotion'],palette=['#36454F','#89CFF0'])
+ax.set_title('Sentiments scores of Tweets about Modi')
+plt.savefig('data/sentiment_plot3.png', dpi=300)
 
 # Sentiments for Rahul
-# plt.figure(figsize=(15,10))
-# sns.set_style("darkgrid")
-# ax = sns.countplot(x=rahul_df['Emotion'],palette=['#36454F','#89CFF0'])
-# ax.set_title('Sentiments scores of Tweets about Rahul')
-# plt.savefig('sentiment_plot4.png', dpi=300)
-#
-#
+plt.figure(figsize=(15,10))
+sns.set_style("darkgrid")
+ax = sns.countplot(x=rahul_df['Emotion'],palette=['#36454F','#89CFF0'])
+ax.set_title('Sentiments scores of Tweets about Rahul')
+plt.savefig('data/sentiment_plot4.png', dpi=300)
 
 
 
 
-# modi_df.drop(['Emotion'],axis=1,inplace=True)
-# rahul_df.drop(['Emotion'],axis=1,inplace=True)
+modi_df.drop(['Emotion'],axis=1,inplace=True)
+rahul_df.drop(['Emotion'],axis=1,inplace=True)
 
 
 
@@ -243,18 +241,18 @@ def svr_prediction(text):
     else:
         return "neu"
 #
-# rahul_df['Emotion'] = rahul_df['Tweet'].apply(svr_prediction)
-# modi_df['Emotion'] = modi_df['Tweet'].apply(svr_prediction)
-# print(modi_df['Emotion'].value_counts());
-# print(rahul_df['Emotion'].value_counts());
+rahul_df['Emotion'] = rahul_df['Tweet'].apply(svr_prediction)
+modi_df['Emotion'] = modi_df['Tweet'].apply(svr_prediction)
+print(modi_df['Emotion'].value_counts());
+print(rahul_df['Emotion'].value_counts());
 
 
 # Print a few samples with their predicted sentiments
-# print("Samples with Predicted Sentiments:")
-# for index, row in rahul_df.sample(5).iterrows():
-#     print("Tweet:", row['Tweet'])
-#     print("Predicted Emotion:", row['Emotion'])
-#     print()
+print("Samples with Predicted Sentiments:")
+for index, row in rahul_df.sample(5).iterrows():
+    print("Tweet:", row['Tweet'])
+    print("Predicted Emotion:", row['Emotion'])
+    print()
 
 
 
@@ -263,14 +261,14 @@ plt.figure(figsize=(15,10))
 sns.set_style("darkgrid")
 ax = sns.countplot(x=modi_df['Emotion'],palette=['#36454F','#89CFF0'])
 ax.set_title('Sentiments scores of Tweets about Modi')
-plt.savefig('sentiment_plot5.png', dpi=300)
+plt.savefig('data/sentiment_plot5.png', dpi=300)
 
 # Sentiments for Rahul
 plt.figure(figsize=(15,10))
 sns.set_style("darkgrid")
 ax = sns.countplot(x=rahul_df['Emotion'],palette=['#36454F','#89CFF0'])
 ax.set_title('Sentiments scores of Tweets about Rahul')
-plt.savefig('sentiment_plot6.png', dpi=300)
+plt.savefig('data/sentiment_plot6.png', dpi=300)
 
 
 
