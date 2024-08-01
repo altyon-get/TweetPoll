@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-import time  # Import the time module for animation
+import time
 from sklearn.feature_extraction import text
 import string
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -13,14 +13,11 @@ import joblib
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-# Load the SVR model and TF-IDF vectorizer
 svr_regressor, tfidf_vectorizer = joblib.load('data/svr_model_with_tfidf.pkl')
 
-# Load the main CSV file
 def load_data(csv_file):
     return pd.read_csv(csv_file)
 
-# Sentiment analysis functions
 def vader_sentiment(tweet):
     analyser = SentimentIntensityAnalyzer()
     SentDict = analyser.polarity_scores(tweet)
@@ -59,16 +56,15 @@ def preprocess_tweet(tweet):
     return tweet
 
 def plot_sentiment(df, title):
-    plt.figure(figsize=(7.5, 5))  # Set the width to 50% of the default size
-    sns.set(style="whitegrid")  # Set the style of the plot to have gridlines
+    plt.figure(figsize=(7.5, 5))
+    sns.set(style="whitegrid")
 
-    # Customizing the plot's colors and using a font
-    ax = sns.countplot(x=df['Emotion'], palette=['#36454F', '#89CFF0', '#FFD700'])  # Adding a third color for neutral sentiment
-    ax.set_title(title, fontsize=20, fontweight='bold', fontname='Helvetica')  # Custom font and size for title
-    ax.set_xlabel('Sentiment', fontsize=14, fontname='Helvetica')  # Custom font and size for x-label
-    ax.set_ylabel('Count', fontsize=14, fontname='Helvetica')  # Custom font and size for y-label
+    ax = sns.countplot(x=df['Emotion'], palette=['#36454F', '#89CFF0', '#FFD700'])
+    ax.set_title(title, fontsize=20, fontweight='bold', fontname='Helvetica')
+    ax.set_xlabel('Sentiment', fontsize=14, fontname='Helvetica')
+    ax.set_ylabel('Count', fontsize=14, fontname='Helvetica')
 
-    plt.grid(True, linestyle='--', linewidth=0.5, color='gray')  # Custom grid lines
+    plt.grid(True, linestyle='--', linewidth=0.5, color='gray')
     st.pyplot()
 
 
@@ -111,7 +107,7 @@ def display_tweets(df):
         for index, tweet in df.iterrows():
             with tweet_container.container():
                 st.markdown(f"<div class='tweet' style='background-image: url(twitter_logo.jpg); background-size: contain; background-repeat: no-repeat;'>Tweet_{index}: {tweet['text']}</div>", unsafe_allow_html=True)
-                time.sleep(2)  # Add a delay for animation
+                time.sleep(2)
 
 
 def main():
