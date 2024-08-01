@@ -11,7 +11,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
 
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+# st.set_option('deprecation.showPyplotGlobalUse', False)
 
 svr_regressor, tfidf_vectorizer = joblib.load('data/svr_model_with_tfidf.pkl')
 
